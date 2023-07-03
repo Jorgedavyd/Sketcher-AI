@@ -6,5 +6,15 @@ print('Creator mode: Creates a sketch of an input image of the anatomical body o
 
 print('Sketch mode: Creates an full-sketched version of the photo.\n')
 
-input()
+input('Press anything to start: \n')
 
+
+while True:
+    mode = int(input('1. Creator mode \n2. Sketcher mode'))
+    if mode ==1:
+        MODEL = 'creator.pt'
+    elif mode ==2:
+        MODEL = 'sketch.pt'
+    
+    else:
+        print('Tiene que insertar 1 o 2, en base al modo de uso')
