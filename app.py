@@ -18,10 +18,13 @@ while True:
         style, enhance, refine = get_models(MODEL)
         img, filename = get_input()
         stylization(img,style,enhance,refine, MODEL, filename.split('.')[0], diff = False)
+        break
     elif mode ==2:
         MODEL = 'sketch'
         style, enhance, refine = get_models(MODEL)
         img, filename = get_input()
         stylization(img,style,enhance,refine, MODEL, filename.split('.')[0], diff = False)
+        input('Your file was saved on outputs directory')
+        break
     else:
         print('Tiene que insertar 1 o 2, en base al modo de uso')
