@@ -1,5 +1,5 @@
 import os
-from models.utils import *
+from models_architecture.utils import *
 import torch
 import time
 
