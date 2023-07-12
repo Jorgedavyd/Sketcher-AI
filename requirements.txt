@@ -1,10 +1,4 @@
 torch
 torchvision
-PIL
-sys
-copy
-os
-gc
-time
-collections
+pillow
 matplotlib
