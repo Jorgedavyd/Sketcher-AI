@@ -14,13 +14,13 @@ if __name__ == '__main__':
 
     while True:
         mode = input('1. Creator mode \n2. Sketcher mode\n===================>(1,2,q quit)')
-        if mode ==1:
+        if mode =='1':
             MODEL = 'creator'
             style, enhance, refine = get_models(MODEL)
             img, filename = get_input()
             stylization(img,style,enhance,refine, MODEL, filename.split('.')[0], diff = False)
             input('Your file was saved on outputs directory')
-        elif mode ==2:
+        elif mode =='2':
             MODEL = 'sketch'
             style, enhance, refine = get_models(MODEL)
             img, filename = get_input()
