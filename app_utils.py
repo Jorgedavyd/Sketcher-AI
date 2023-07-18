@@ -20,15 +20,15 @@ def get_input():
             continue
         break
     real_index = num -1
-    filepath = os.path.join(os.getcwd(), inputs[real_index])
+    filepath = os.path.join(os.getcwd(), 'inputs',inputs[real_index])
     input_img = image_loader(filepath, size=256)
     return input_img, inputs[real_index]
 
 def get_models(MODEL):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    style_subnet = torch.load('models/style_subnet_' + MODEL + '.pt', map_location='cpu').eval().to(device)
-    enhance_subnet = torch.load('models/enhance_subnet_' + MODEL + '.pt', map_location='cpu').eval().to(device)
-    refine_subnet = torch.load('models/refine_subnet_' + MODEL + '.pt', map_location='cpu').eval().to(device)
+    style_subnet = torch.jit.load('models/style_subnet_' + MODEL + '.pt', map_location='cpu').eval().to(device)
+    enhance_subnet = torch.jit.load('models/enhance_subnet_' + MODEL + '.pt', map_location='cpu').eval().to(device)
+    refine_subnet = torch.jit.load('models/refine_subnet_' + MODEL + '.pt', map_location='cpu').eval().to(device)
     return style_subnet, enhance_subnet, refine_subnet
 
 def stylization(input_img, style_subnet, enhance_subnet, refine_subnet, MODEL, name, diff = False):
